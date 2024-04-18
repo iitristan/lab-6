@@ -9,9 +9,19 @@ const tempMusicData = [
   { id: 5, title: "Paubaya", artist: "Moira Dela Torre", genre: "OPM" },
   { id: 6, title: "Imahe", artist: "Magnus Haven", genre: "OPM Rock" },
   { id: 7, title: "Binibini", artist: "Zack Tabudlo", genre: "OPM" },
-  { id: 8, title: "Hanggang Kailan", artist: "Orange and Lemons", genre: "OPM" },
+  {
+    id: 8,
+    title: "Hanggang Kailan",
+    artist: "Orange and Lemons",
+    genre: "OPM",
+  },
   { id: 9, title: "Kathang Isip", artist: "Ben&Ben", genre: "Indie Folk" },
-  { id: 10, title: "Sana", artist: "I Belong to the Zoo", genre: "Alternative Rock" }
+  {
+    id: 10,
+    title: "Sana",
+    artist: "I Belong to the Zoo",
+    genre: "Alternative Rock",
+  },
 ];
 
 function App() {
@@ -36,10 +46,6 @@ function App() {
       music.genre.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
   return (
     <div>
       <nav>
@@ -50,32 +56,38 @@ function App() {
             className="search"
             placeholder="Search..."
             value={searchQuery}
-            onChange={handleSearchChange}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
         <p>
-          Found <strong>{filteredMusics.length}</strong> results for "{searchQuery}"
+          Found <strong>{filteredMusics.length}</strong> results for "
+          {searchQuery}"
         </p>
       </nav>
       <div className="container">
-        <div className="container">
+        <div className="music-list">
           <h2>Music List</h2>
           <ul>
             {filteredMusics.map((music) => (
               <li key={music.id}>
                 {music.title} by {music.artist} ({music.genre})
-                <button onClick={() => addToPlaylist(music)}>Add to Playlist ♥️</button>
+                <button onClick={() => addToPlaylist(music)}>
+                  Add to Playlist ♥️
+                </button>
               </li>
             ))}
           </ul>
         </div>
-        <div className="container">
+        <div className="playlist">
           <h2>Playlist</h2>
+          <p style={{ color: "black" }}>Total Songs: {playlist.length}</p>
           <ul>
             {playlist.map((music) => (
               <li key={music.id}>
                 {music.title} by {music.artist}
-                <button onClick={() => removeFromPlaylist(music)}>Remove</button>
+                <button onClick={() => removeFromPlaylist(music)}>
+                  Remove
+                </button>
               </li>
             ))}
           </ul>
