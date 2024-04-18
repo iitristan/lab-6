@@ -1,56 +1,97 @@
-/* src/styles.css */
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
+/* Reset margin and padding for all elements */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
-}
-
-.container > div {
-  flex: 1;
+body {
+  font-family: "Roboto", sans-serif; /* A modern, clean font */
+  background-color: #f0f4f8; /* A light, neutral background color */
+  color: #333; /* Soft black for text for better readability */
+  line-height: 1.6;
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Full-width container with padding for breathing space */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap; /* Allows for responsive dropping of elements */
+  justify-content: space-between; /* Space between Music List and Playlist */
+  gap: 20px; /* Spacing between flex items */
+}
+
+h1 {
+  text-align: center;
+  color: #f0f4f8; /* Modern blue for headings */
+  margin-bottom: 20px;
+}
+
+/* Navigation styling */
+nav {
+  background-color: #0056b3; /* Modern blue matching the heading */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Search bar styling */
+.search {
+  padding: 10px;
+  width: 100%; /* Full width for better mobile responsiveness */
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 16px; /* Larger font size for easier reading */
+}
+
+/* Music and Playlist sections */
+.container > div {
+  background: white;
+  padding: 20px;
+  border-radius: 8px; /* Consistent rounded corners */
+  flex: 1 1 45%; /* Flex basis of 45% allows two columns layout */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consistent shadow for depth */
+}
+
+h2 {
+  border-bottom: 2px solid #0056b3; /* Blue underline for section headers */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 ul {
   list-style: none;
-  padding: 0;
 }
 
 li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
+  background: #f8f8f8; /* Light background for list items for contrast */
+  padding: 10px;
+  margin-bottom: 10px; /* Space between items */
+  border-radius: 5px; /* Rounded corners for list items */
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
+  background-color: #28a745; /* Green color for buttons */
+  left: 10px;
+  color: white;
   border: none;
-  background-color: #007bff;
-  color: #fff;
+  float: right;
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #218838; /* Darker green on hover */
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .container > div {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+p {
+  font-size: 14px; /* Smaller font size for paragraph elements */
+  color: white; /* White color for contrast against nav background */
 }

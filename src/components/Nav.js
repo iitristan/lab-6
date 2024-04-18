@@ -1,35 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Nav() {
+function Nav({ setSearchQuery, totalResults, query }) {
   return (
     <nav>
       <h1 style={{ textAlign: "center" }}>Music App</h1>
-
-      <Search />
-      <NumberResults query="query" />
+      <Search setSearchQuery={setSearchQuery} />
+      <NumberResults query={query} totalResults={totalResults} />
     </nav>
   );
 }
 
-function Search() {
-  const [query, setQuery] = useState("");
+function Search({ setSearchQuery }) {
   return (
     <div>
       <input
         type="text"
         className="search"
         placeholder="Search..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
     </div>
   );
 }
 
-function NumberResults({ query }) {
+function NumberResults({ query, totalResults }) {
   return (
     <p>
-      Found <strong>X</strong> results for "{query}"
+      Found <strong>{totalResults}</strong> results for "{query}"
     </p>
   );
 }
